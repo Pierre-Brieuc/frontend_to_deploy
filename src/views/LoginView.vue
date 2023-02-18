@@ -38,7 +38,6 @@
 </template>
 <script>
 import axios from 'axios'
-//const API_URL = 'http://localhost:3000/users/login/'
 const API_URL = 'https://backend-project-web-app.onrender.com/users/login/'
 
 export default {
