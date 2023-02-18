@@ -38,7 +38,6 @@
 </template>
 <script>
 import axios from 'axios'
-//const API_URL = 'http://localhost:3000/users/register'
 const API_URL = 'https://backend-project-web-app.onrender.com/users/register'
 export default {
   name: 'RegisterView',
