@@ -53,7 +53,7 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      token: localStorage.getItem('token'),
+      token: Cookies.get('token'),
       movies: [],
       currentPage: 1,
       perPage: 10,
@@ -72,10 +72,10 @@ export default {
     if (this.isTokenEmpty()) {
       this.$router.push('/login')
     }
-    if (localStorage.getItem('count') < 1) {
+    if (Cookies.get('count') < 1) {
       location.reload()
     }
-    localStorage.setItem('count', 1)
+    Cookies.set('count', 1)
     axios.get('https://backend-project-web-app.onrender.com/locations/', {
       headers: {
         Authorization: `Bearer ${this.token}`
@@ -103,7 +103,7 @@ export default {
       }
     },
     isTokenEmpty () {
-      if (localStorage.getItem('token') === null) {
+      if (Cookies.get('token') === null) {
         return true
       } else {
         return false
@@ -113,7 +113,7 @@ export default {
       const API_URL = 'https://backend-project-web-app.onrender.com/locations/' + movie._id
       axios.delete(API_URL, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${Cookies.get('token')}`
         }
       })
         .then(response => {
@@ -125,7 +125,7 @@ export default {
           console.log(error)
           console.log(movie._id)
           console.log(this.token)
-          console.log(localStorage.getItem('user'))
+          console.log(Cookies.get('user'))
           console.log(API_URL)
         })
     },

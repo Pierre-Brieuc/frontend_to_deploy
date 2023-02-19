@@ -12,12 +12,12 @@
 export default {
   data () {
     return {
-      token: localStorage.getItem('token')
+      token: Cookies.get('token')
     }
   },
   methods: {
     isTokenEmpty () {
-      if (localStorage.getItem('token') === null) {
+      if (Cookies.get('token') === null) {
         return false
       } else {
         return true

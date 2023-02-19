@@ -137,7 +137,7 @@ export default {
       annee: '',
       nom_realisateur: '',
       sourceLocationID: '',
-      token: localStorage.getItem('token')
+      token: Cookies.get('token')
     }
   },
   methods: {
@@ -161,7 +161,7 @@ export default {
           __v: 0
         }, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
+            Authorization: `Bearer ${Cookies.get('token')}`
           }
         })
         .then(response => {
@@ -172,7 +172,7 @@ export default {
           console.log(error)
           console.log(error.message)
           console.log(this.token)
-          console.log(localStorage.getItem('user'))
+          console.log(Cookies.get('user'))
         })
     }
   }

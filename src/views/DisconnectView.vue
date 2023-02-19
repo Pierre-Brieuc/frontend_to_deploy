@@ -10,8 +10,8 @@ export default {
   name: 'DisconnectView',
   computed: {
     disconnect () {
-      localStorage.removeItem('token')
-      localStorage.removeItem('count')
+      Cookies.remove('token')
+      Cookies.remove('count')
       location.reload()
       return 0
     }
