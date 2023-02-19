@@ -9,17 +9,15 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
-
 export default {
   data () {
     return {
-      token: Cookies.get('token')
+      token: localStorage.getItem('token')
     }
   },
   methods: {
     isTokenEmpty () {
-      if (Cookies.get('token') === null) {
+      if (localStorage.getItem('token') === null) {
         return false
       } else {
         return true

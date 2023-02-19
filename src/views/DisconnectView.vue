@@ -6,14 +6,12 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
-
 export default {
   name: 'DisconnectView',
   computed: {
     disconnect () {
-      Cookies.remove('token')
-      Cookies.remove('count')
+      localStorage.removeItem('token')
+      localStorage.removeItem('count')
       location.reload()
       return 0
     }

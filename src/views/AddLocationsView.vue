@@ -122,8 +122,6 @@
   </template>
 <script>
 import axios from 'axios'
-import Cookies from 'js-cookie'
-
 const API_URL = 'https://backend-project-web-app.onrender.com/locations/'
 
 export default {
@@ -139,7 +137,7 @@ export default {
       annee: '',
       nom_realisateur: '',
       sourceLocationID: '',
-      token: Cookies.get('token')
+      token: localStorage.getItem('token')
     }
   },
   methods: {
@@ -163,7 +161,7 @@ export default {
           __v: 0
         }, {
           headers: {
-            Authorization: `Bearer ${Cookies.get('token')}`
+            Authorization: `Bearer ${localStorage.getItem('token')}`
           }
         })
         .then(response => {
@@ -174,7 +172,7 @@ export default {
           console.log(error)
           console.log(error.message)
           console.log(this.token)
-          console.log(Cookies.get('user'))
+          console.log(localStorage.getItem('user'))
         })
     }
   }

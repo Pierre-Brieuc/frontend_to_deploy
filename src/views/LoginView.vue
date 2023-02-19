@@ -38,7 +38,6 @@
 </template>
 <script>
 import axios from 'axios'
-import Cookies from 'js-cookie'
 const API_URL = 'https://backend-project-web-app.onrender.com/users/login/'
 
 export default {
@@ -57,10 +56,10 @@ export default {
       })
         .then(response => {
           console.log(JSON.stringify(response.config))
-          Cookies.set('token', response.data.jwt)
-          Cookies.set('user', response.config.data)
-          console.log(Cookies.get('token'))
-          Cookies.set('count', 0)
+          localStorage.setItem('token', response.data.jwt)
+          localStorage.setItem('user', response.config.data)
+          console.log(localStorage.getItem('token'))
+          localStorage.setItem('count', 0)
           this.$router.push('/locations')
         })
         .catch(error => {
