@@ -122,6 +122,8 @@
   </template>
 <script>
 import axios from 'axios'
+import Cookies from 'js-cookie'
+
 const API_URL = 'https://backend-project-web-app.onrender.com/locations/'
 
 export default {
